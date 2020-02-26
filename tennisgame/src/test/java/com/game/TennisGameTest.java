@@ -19,7 +19,7 @@ public class TennisGameTest {
 
 	public TennisGameTest() {
 	}
-	
+
 	@Before
 	public void init() {
 		MockitoAnnotations.initMocks(this);
@@ -31,12 +31,12 @@ public class TennisGameTest {
 	public void testPlayerOneWithNegativeScore() {
 		assertEquals(GameConstant.FALSE,tennisGame.isValidScore(-1, 1));
 	}
-	
+
 	@Test
 	public void testPlayerTwoWithNegativeScore() {
 		assertEquals(GameConstant.FALSE,tennisGame.isValidScore(1, -1));
 	}
-	
+
 	@Test
 	public void testPlayersWithNegativeScore() {
 		assertEquals(GameConstant.FALSE,tennisGame.isValidScore(-1, -1));
@@ -48,4 +48,28 @@ public class TennisGameTest {
 	}
 
 	// Test IsValidScore method End
+
+	// Test getScore method Start
+
+	@Test
+	public void testScoreLove() {
+		assertEquals(GameConstant.SCORE_LOVE,tennisGame.getScore(0));
+	}
+
+	@Test
+	public void testScoreFifteen() {
+		assertEquals(GameConstant.SCORE_FIFTEEN,tennisGame.getScore(1));
+	}
+
+	@Test
+	public void testScoreThirty() {
+		assertEquals(GameConstant.SCORE_THIRTY,tennisGame.getScore(2));
+	}
+
+	@Test
+	public void testScoreForty() {
+		assertEquals(GameConstant.SCORE_FORTY,tennisGame.getScore(3));
+	}
+
+	// Test getScore method End
 }
